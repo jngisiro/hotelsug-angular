@@ -1,0 +1,37 @@
+<section class="login-form">
+  <form class="form" (ngSubmit)="onSubmit(form)" #form="ngForm">
+    <small class="error">{{ error }}</small>
+    <label for="username">
+      Email
+      <input
+        type="email"
+        ngModel
+        name="email"
+        #email="ngModel"
+        required
+        email
+      />
+      <small *ngIf="email.invalid && email.touched">Email is required</small>
+    </label>
+
+    <label for="password">
+      Password
+      <input
+        type="password"
+        ngModel
+        name="password"
+        #password="ngModel"
+        required
+      />
+      <small *ngIf="password.invalid && password.touched"
+        >Password is required</small
+      >
+    </label>
+
+    <button *ngIf="!loading" [disabled]="form.invalid">Login</button>
+
+    <app-loading *ngIf="loading"></app-loading>
+
+    <p>Don't have an account? <a routerLink="/register">Register Here</a></p>
+  </form>
+</section>

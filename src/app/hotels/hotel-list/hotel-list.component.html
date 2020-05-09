@@ -1,0 +1,30 @@
+<div *ngIf="!loading; else loader">
+  <div class="heading">
+    <h2>Best travel destinations in Uganda</h2>
+    <a routerLink="/locations">See all</a>
+  </div>
+  <section class="destinations">
+    <app-location
+      *ngFor="let location of locations"
+      [location]="location"
+    ></app-location>
+  </section>
+
+  <div class="heading">
+    <h2>The most popular hotels in Kampala</h2>
+    <a routerLink="/hotels?location=kampala">See all</a>
+  </div>
+  <section class="kampala-hotels">
+    <app-hotel-thumb
+      *ngFor="let hotel of hotels; let i = index"
+      [hotel]="hotel"
+      [index]="i"
+    ></app-hotel-thumb>
+  </section>
+
+  <div class="hotel__list"></div>
+</div>
+
+<ng-template #loader>
+  <app-loading></app-loading>
+</ng-template>

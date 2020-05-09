@@ -1,0 +1,13 @@
+<div class="card">
+  <img class="card__img" src="{{ hotel.coverImage }}" />
+  <div class="card__content">
+    <p class="card__title">{{ hotel.name }}</p>
+    <p class="card__subtitle">{{ hotel.address }}</p>
+    <p class="card__availability">Available</p>
+    <p class="card__description">
+      {{ hotel.summary | summarise: 200 }}
+    </p>
+    <p class="card__price">Average Price: ${{ hotel.price }}</p>
+    <p class="card__rating">{{ hotel.rating }} Rating | 114 reviews</p>
+  </div>
+</div>

@@ -1,0 +1,82 @@
+<section class="register-form">
+  <form
+    class="form"
+    [formGroup]="registerForm"
+    (ngSubmit)="onRegistered()"
+    *ngIf="!hasRegistered"
+  >
+    <label for="firstname">
+      First Name
+      <input type="text" formControlName="firstname" />
+      <small
+        *ngIf="
+          registerForm.get('firstname').invalid &&
+          registerForm.get('firstname').touched
+        "
+        >Please provide a first name</small
+      >
+    </label>
+
+    <label for="lastname">
+      Last Name
+      <input type="text" formControlName="lastname" />
+      <small
+        *ngIf="
+          registerForm.get('lastname').invalid &&
+          registerForm.get('lastname').touched
+        "
+        >Please provide a last name</small
+      >
+    </label>
+
+    <label for="email">
+      Email Address
+      <input type="email" formControlName="email" />
+      <small
+        *ngIf="
+          registerForm.get('email').invalid && registerForm.get('email').touched
+        "
+        >Please provide a first email address</small
+      >
+    </label>
+
+    <label for="password">
+      Password
+      <input type="password" formControlName="password" />
+      <small
+        *ngIf="
+          registerForm.get('password').invalid &&
+          registerForm.get('password').touched
+        "
+        >Please provide a password</small
+      >
+    </label>
+
+    <label for="passwordConfirm">
+      Confirm Password
+      <input type="password" formControlName="passwordConfirm" />
+      <small
+        *ngIf="
+          registerForm.get('passwordConfirm').invalid &&
+          registerForm.get('passwordConfirm').touched
+        "
+        >Please confirm your password</small
+      >
+    </label>
+
+    <button *ngIf="!loading" [disabled]="registerForm.invalid">
+      Create Account
+    </button>
+    <app-loading *ngIf="loading"></app-loading>
+  </form>
+
+  <div class="notify" *ngIf="hasRegistered">
+    <h1 class="notify__header">
+      Success
+    </h1>
+    <p class="notify__message">
+      Congratulations. Your account has been created at Hotels.ug Please check
+      your email at: <b>{{ confirmEmail }}</b> to activate your account
+    </p>
+  </div>
+</section>

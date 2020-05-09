@@ -1,0 +1,27 @@
+<nav class="navigation">
+  <a class="logo" routerLink="/">Hotels.ug</a>
+
+  <ul class="nav">
+    <li><a href="#">USD</a></li>
+    <li><a routerLink="/" routerLinkActive="active">Help</a></li>
+    <li><a routerLink="/" routerLinkActive="active">Your Bookings</a></li>
+    <li *ngIf="!isAuthenticated">
+      <a routerLink="/register" routerLinkActive="active">Create Account</a>
+    </li>
+    <li>
+      <a
+        *ngIf="!isAuthenticated; else profile"
+        class="signin"
+        routerLink="/login"
+        routerLinkActive="active"
+        >Sign in</a
+      >
+      <ng-template #profile>
+        <a routerLink="#">Hi {{ user.firstname }}</a>
+      </ng-template>
+    </li>
+    <li *ngIf="isAuthenticated" (click)="onLogout()">
+      <a>Logout</a>
+    </li>
+  </ul>
+</nav>

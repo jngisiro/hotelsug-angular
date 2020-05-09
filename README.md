@@ -1,2 +1,2 @@
-# hotelsug-angular
-Listing of hotels in Uganda's major towns and cities for Reservations and Bookings
+# hotels.ug
+Listings and Bookings for hotels in Uganda

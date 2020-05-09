@@ -1,0 +1,38 @@
+.imgThumb {
+  cursor: pointer;
+  border-radius: 5px;
+  transition: 0.5s ease-out;
+  overflow: hidden;
+  height: 200px;
+
+  img {
+    width: 100%;
+    min-height: auto;
+    min-width: 0px;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 5px;
+    transition: 0.5s ease-out;
+    backface-visibility: hidden;
+
+    &:hover {
+      transform: scale(1.05);
+    }
+  }
+
+  &:hover {
+    // transform: translateY(-2px);
+  }
+}
+
+.imgThumb__info {
+  color: #707070;
+  font-size: 14px;
+}
+
+.imgThumb__title {
+  font-size: 15px;
+  text-transform: uppercase;
+  font-weight: 500;
+  margin-top: 5px;
+}
