@@ -2,7 +2,7 @@
   <img class="card__img" src="{{ hotel.coverImage }}" />
   <div class="card__content">
     <p class="card__title">{{ hotel.name }}</p>
-    <p class="card__subtitle">{{ hotel.address }}</p>
+    <p class="card__subtitle">{{ hotel.location.description }}</p>
     <p class="card__availability">Available</p>
     <p class="card__description">
       {{ hotel.summary | summarise: 200 }}
