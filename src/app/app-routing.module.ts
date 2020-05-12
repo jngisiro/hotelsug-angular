@@ -14,14 +14,18 @@ import { FavouritesComponent } from "./hotels/favourites/favourites.component";
 import { AuthGuard } from "./services/auth-guard.service";
 import { HotelsComponent } from "./hotels/hotels.component";
 import { LocationsComponent } from "./locations/locations.component";
-import { LocationDetailsComponent } from "./location-details/location-details.component";
+import { LocationDetailsComponent } from "./locations/location-details/location-details.component";
 import { BookComponent } from "./book/book.component";
+import { CreateLocationComponent } from "./locations/create-location/create-location.component";
+import { CreateHotelComponent } from "./hotels/create-hotel/create-hotel.component";
 
 const routes: Routes = [
   { path: "", component: HotelListComponent },
+  { path: "hotel/create", component: CreateHotelComponent },
   { path: "hotel/:id", component: HotelDetailsComponent },
-  { path: "hotels/", component: HotelsComponent },
-  { path: "locations/", component: LocationsComponent },
+  { path: "hotels", component: HotelsComponent },
+  { path: "locations", component: LocationsComponent },
+  { path: "locations/create", component: CreateLocationComponent },
   { path: "location/:id", component: LocationDetailsComponent },
   { path: "bookings", component: BookingsComponent, canActivate: [AuthGuard] },
   { path: "book", component: BookComponent, canActivate: [AuthGuard] },

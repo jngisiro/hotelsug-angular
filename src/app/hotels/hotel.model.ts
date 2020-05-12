@@ -1,15 +1,26 @@
-export class Hotel {
-  constructor(
-    public name: string,
-    public summary: string,
-    public location: string,
-    public address: string,
-    public rating: number,
-    public price: number,
-    public coverImage: string,
-    public amenities: string[],
-    public isAvailable: boolean,
-    public distFromCity?: number,
-    public distFromEntebbe?: number
-  ) {}
+export interface Hotel {
+  name: string;
+  slug?: string;
+  images?: string[];
+  coverImage: string;
+  description: string;
+  summary: string;
+  facilities: string[];
+  languages: string[];
+  availability: boolean;
+  price?: {
+    ordinary?: number;
+    deluxe?: number;
+    suite?: number;
+  };
+  rating?: number;
+  ratings?: number;
+  rules?: string;
+  views?: number;
+  location: {
+    address: string;
+    description: string;
+    region: string;
+    coordinates?: number[];
+  };
 }

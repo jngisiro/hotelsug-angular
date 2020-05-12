@@ -1,0 +1,191 @@
+<section class="create-hotel">
+  <form class="hotel-form" (ngSubmit)="onSubmit(form)" #form="ngForm">
+    <div class="tabs" #tabs>
+      <div class="tab">
+        Hotel Description
+
+        <label for="name">
+          Hotel Name
+          <input
+            type="text"
+            placeholder="(required)"
+            ngModel
+            name="hotelName"
+            #hotelName="ngModel"
+            required
+          />
+          <small *ngIf="hotelName.invalid && hotelName.touched"
+            >Hotel name is required</small
+          >
+        </label>
+
+        <label for="description">
+          Hotel Description
+          <textarea
+            ngModel
+            name="description"
+            #description="ngModel"
+            rows="10"
+            required
+            placeholder="required"
+          ></textarea>
+          <small *ngIf="description.invalid && description.touched"
+            >Please enter a description</small
+          >
+        </label>
+
+        <label for="name">
+          Summary
+          <input
+            ngModel
+            name="summary"
+            #summary="ngModel"
+            type="text"
+            placeholder="(required)"
+            required
+          />
+          <small *ngIf="summary.invalid && summary.touched"
+            >Please enter a short summary about the hotel</small
+          >
+        </label>
+      </div>
+
+      <div class="tab">
+        Hotel Location
+        <label for="location">
+          Select Location
+          <select ngModel name="location" #location="ngModel" required>
+            <option>Kampala</option>
+            <option>Jinja</option>
+            <option>Entebbe</option>
+            <option>Fort Porta</option>
+          </select>
+        </label>
+
+        <label for="address">
+          Full Address
+          <input
+            type="text"
+            name="address"
+            ngModel
+            #address="ngModel"
+            required
+          />
+        </label>
+
+        <label for="location">
+          Select Region
+          <select ngModel name="location" #location="ngModel" required>
+            <option>Central Uganda</option>
+            <option>Eastern Uganda</option>
+            <option>Western Uganda</option>
+            <option>South West Uganda</option>
+            <option>Northern Uganda</option>
+            <option>North East Uganda</option>
+          </select>
+        </label>
+
+        <label for="cordinates">
+          Add Coordinates
+          <input
+            type="text"
+            ngModel
+            name="coordinates"
+            placeholder="Latitude,Longitude"
+            #coordinates="ngModel"
+          />
+        </label>
+      </div>
+
+      <div class="tab">
+        Need to Know
+        <label for="facilities">
+          Hotel Facilities
+          <input
+            type="text"
+            ngModel
+            name="facilities"
+            placeholder="Facility 1, Facility 2, Facility3, ..."
+            #facilities="ngModel"
+          />
+        </label>
+
+        <label for="name">
+          Languages
+          <input
+            type="text"
+            ngModel
+            name="languages"
+            placeholder="language, language, . . . "
+            #languages="ngModel"
+          />
+        </label>
+
+        <label for="rules">
+          Hotel Rules and Guidelines
+          <textarea
+            ngModel
+            name="rules"
+            #rules="ngModel"
+            rows="10"
+            placeholder="rule\nrule\nrule"
+          ></textarea>
+        </label>
+      </div>
+
+      <div class="tab">
+        Hotel Gallery
+        <label for="coverImage">
+          Upload Cover Image
+          <input
+            type="file"
+            ngModel
+            name="coverImage"
+            #coverImage="ngModel"
+            accept="image/*"
+          />
+        </label>
+
+        <label for="images">
+          Add any more images to showcase the hotel
+          <input
+            type="file"
+            accept="image/*"
+            (change)="onFilesChange($event)"
+          />
+        </label>
+      </div>
+    </div>
+
+    <div style="overflow: auto;">
+      <div>
+        <button
+          style="float: left;"
+          #prevBtn
+          type="button"
+          id="prevBtn"
+          (click)="nextPrev(-1)"
+        >
+          Previous
+        </button>
+        <button
+          style="float: right;"
+          #nextBtn
+          type="button"
+          id="nextBtn"
+          (click)="nextPrev(1)"
+        >
+          {{ submit ? "Submit" : "Next" }}
+        </button>
+      </div>
+    </div>
+
+    <!-- Circles which indicates the steps of the form: -->
+    <div #steps style="text-align: center; margin-top: 40px;">
+      <span class="step"></span>
+      <span class="step"></span>
+      <span class="step"></span>
+      <span class="step"></span>
+    </div>
+  </form>
+</section>

@@ -1,0 +1,17 @@
+<section class="location-form">
+  <h1>Create New Location</h1>
+
+  <form class="form" (ngSubmit)="onSubmit(form)" #form="ngForm">
+    <label for="name">
+      Name of the location
+      <input type="text" ngModel name="name" #name="ngModel" required />
+    </label>
+
+    <label for="imageUrl">
+      Insert Cover Image
+      <input type="text" ngModel name="imgUrl" #imgUrl="ngModel" required />
+    </label>
+
+    <button [disabled]="form.invalid">Submit</button>
+  </form>
+</section>

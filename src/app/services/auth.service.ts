@@ -3,6 +3,7 @@ import { BehaviorSubject } from "rxjs";
 import { HttpClient } from "@angular/common/http";
 import { User } from "../auth/user.model";
 import { tap } from "rxjs/operators";
+import { domain, local } from "./url.service";
 
 export class AuthService {
   user = new BehaviorSubject<User>(null);
@@ -10,17 +11,14 @@ export class AuthService {
   constructor(private http: HttpClient) {}
 
   registerUser(user) {
-    return this.http.post(
-      "https://hotelsug.herokuapp.com/api/v1/users/signup",
-      {
-        ...user,
-      }
-    );
+    return this.http.post(domain + "/api/v1/users/signup", {
+      ...user,
+    });
   }
 
   loginUser(email: string, password: string) {
     return this.http
-      .post("https://hotelsug.herokuapp.com/api/v1/users/login", {
+      .post(domain + "/api/v1/users/login", {
         email,
         password,
       })

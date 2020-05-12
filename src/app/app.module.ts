@@ -25,10 +25,12 @@ import { FavouritesComponent } from "./hotels/favourites/favourites.component";
 import { AccountConfirmationComponent } from "./auth/account-confirmation/account-confirmation.component";
 import { ForgotPasswordComponent } from "./auth/forgot-password/forgot-password.component";
 import { ResetPasswordComponent } from "./auth/reset-password/reset-password.component";
-import { LocationDetailsComponent } from './location-details/location-details.component';
-import { LocationsComponent } from './locations/locations.component';
-import { HotelsComponent } from './hotels/hotels.component';
-import { BookComponent } from './book/book.component';
+import { LocationDetailsComponent } from "./locations/location-details/location-details.component";
+import { LocationsComponent } from "./locations/locations.component";
+import { HotelsComponent } from "./hotels/hotels.component";
+import { BookComponent } from "./book/book.component";
+import { CreateLocationComponent } from './locations/create-location/create-location.component';
+import { CreateHotelComponent } from './hotels/create-hotel/create-hotel.component';
 
 @NgModule({
   declarations: [
@@ -52,6 +54,8 @@ import { BookComponent } from './book/book.component';
     LocationsComponent,
     HotelsComponent,
     BookComponent,
+    CreateLocationComponent,
+    CreateHotelComponent,
   ],
   imports: [
     BrowserModule,
