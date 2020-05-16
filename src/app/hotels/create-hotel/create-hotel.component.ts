@@ -11,7 +11,7 @@ import {
 import { HotelDataService } from "src/app/services/hotelData.service";
 import { Hotel } from "../hotel.model";
 import { NgForm } from "@angular/forms";
-import { take, exhaustMap } from "rxjs/operators";
+import { take, exhaustMap, catchError } from "rxjs/operators";
 import { HttpClient, HttpHeaders } from "@angular/common/http";
 
 @Component({
@@ -115,7 +115,7 @@ export class CreateHotelComponent
           console.log(response);
           return this.http
             .put(response.result.url, newHotel.coverImage, {
-              headers: new HttpHeaders().set("Content-Type", "image.jpeg"),
+              headers: new HttpHeaders().set("Content-Type", "image/jpeg"),
             })
             .pipe(
               exhaustMap((res: any) => {
