@@ -24,6 +24,7 @@ const routes: Routes = [
   { path: "hotel/create", component: CreateHotelComponent },
   { path: "hotel/:id", component: HotelDetailsComponent },
   { path: "hotels", component: HotelsComponent },
+  { path: "hotels/:location", component: HotelsComponent },
   { path: "locations", component: LocationsComponent },
   { path: "locations/create", component: CreateLocationComponent },
   { path: "location/:id", component: LocationDetailsComponent },

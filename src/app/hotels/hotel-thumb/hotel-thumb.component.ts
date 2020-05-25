@@ -1,5 +1,6 @@
 import { Component, OnInit, Input } from "@angular/core";
 import { Hotel } from "../hotel.model";
+import { Router } from "@angular/router";
 
 @Component({
   selector: "app-hotel-thumb",
@@ -8,16 +9,12 @@ import { Hotel } from "../hotel.model";
 })
 export class HotelThumbComponent implements OnInit {
   @Input() hotel: Hotel;
-  @Input() index: number;
 
-  hotelName: string = "Sheraton";
-  hotelLocation: string = "Kampala";
-  hotelPric: string = "";
-  constructor() {}
+  constructor(private router: Router) {}
 
   ngOnInit() {}
 
-  onSelectHotel(event: Event) {
-    this.hotelPric = (<HTMLInputElement>event.target).value;
+  onSelectHotel() {
+    this.router.navigate(["hotel", this.hotel.id]);
   }
 }

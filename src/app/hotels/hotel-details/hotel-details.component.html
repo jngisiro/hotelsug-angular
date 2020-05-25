@@ -1,60 +1,26 @@
-<p class="breadcrumps">Home > All Hotels > Kampala > Sheraton</p>
+<!-- <p class="breadcrumps">Home > All Hotels > Kampala > Sheraton</p> -->
 
-<main class="container">
+<app-loading *ngIf="loading"></app-loading>
+
+<main *ngIf="!loading" class="container">
   <aside class="sidebar">Side bar</aside>
 
   <article class="hotel">
     <ul class="nav">
-      <li><a routerLink="/">Pricing</a></li>
-      <li><a routerLink="/">Facilities</a></li>
-      <li><a routerLink="/">House Rules</a></li>
-      <li><a routerLink="/">Guest Reviews</a></li>
+      <li><a routerLink="#prices">Pricing</a></li>
+      <li><a routerLink="#facilities">Facilities</a></li>
+      <li><a routerLink="#rules">House Rules</a></li>
+      <li><a routerLink="#reviews">Guest Reviews</a></li>
     </ul>
 
-    <h2 class="hotel__heading">Arcadia Suites - Kampala</h2>
-    <p class="hotel__address">54A, Kira Road, Kampala, Uganda</p>
+    <h2 class="hotel__heading">{{ hotel?.name }} - {{ hotel?.location }}</h2>
+    <p class="hotel__address">{{ hotel?.address }}</p>
     <div class="imgThumb">
-      <img class="imgThumb__img" src="../../../assets/img/4443527523.jpg" />
+      <img class="imgThumb__img" src="{{ hotel?.coverImage }}" />
     </div>
 
     <div class="hotel__description">
-      <p>
-        Arcadia Suites - Kampala offers accommodation in the heart of Kampala.
-        It is also within walking distance of Aacia Mall and Kisementi retails
-        village with all its vibrant culinary experiences. Free WiFi is offered
-        throughout the property and free private parking is available on site.
-      </p>
-
-      <p>
-        All units feature 2 flat-screen TVs. Some units are air conditioned and
-        include a seating area with a TV. There is also a kitchenette, equipped
-        with a microwave. A refrigerator and kettle are also provided. Bed linen
-        is available.
-      </p>
-
-      <p>
-        Arcadia Suites also includes a fitness centre. Guests can enjoy a meal
-        at the on-site steakhouse rooftop restaurant, followed by a drink at the
-        bar. The property also offers special diet menus.
-      </p>
-
-      <p>
-        Gaddafi National Mosque is 2.8 km from Arcadia Suites - Kampala.
-        Independence Monument is 2.4 km from the property, while Mulago Hospital
-        is 850 m away. The Uganda Golf Club is 2 km from Arcadia Suites.
-      </p>
-
-      <p>
-        Couples particularly like the location — they rated it 8.3 for a
-        two-person trip.
-      </p>
-
-      <p>We speak your language!</p>
-
-      <p>
-        Arcadia Suites - Kampala has been welcoming Booking.com guests since 20
-        Mar 2015.
-      </p>
+      <p>{{ hotel.summary }}</p>
     </div>
   </article>
 </main>

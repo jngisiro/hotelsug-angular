@@ -9,16 +9,20 @@ import { domain, local } from "./url.service";
 export class HotelDataService {
   constructor(private http: HttpClient, private auth: AuthService) {}
 
-  getHotels() {
-    return this.http.get(domain + "/api/v1/hotel").pipe(
+  getHotels(locations: string) {
+    let route = `${domain}/api/v1/hotel`;
+    if (locations) {
+      route = `${domain}/api/v1/hotel?location=kampala`;
+    }
+    return this.http.get(route).pipe(
       map((hotels: any) => {
         return hotels.data;
       })
     );
   }
 
-  getHotelById(id: number): Hotel {
-    return;
+  getHotelById(id: string) {
+    return this.http.get(`${domain}/api/v1/hotel/${id}`);
   }
 
   registerHotel(hotel: Hotel) {

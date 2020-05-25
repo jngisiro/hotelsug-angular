@@ -11,7 +11,8 @@ import { HotelDataService } from "src/app/services/hotelData.service";
 export class HotelDetailsComponent implements OnInit {
   hotelAmenities: string[] = ["tv", "bath", "parking"];
   hasAmenities: boolean = false;
-  hotel: Hotel;
+  hotel;
+  loading: boolean = false;
 
   constructor(
     private router: Router,
@@ -22,13 +23,20 @@ export class HotelDetailsComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.hotel = this.hotelService.getHotelById(
-      this.route.snapshot.params["id"]
-    );
+    this.loading = true;
+    this.route.params.subscribe((params: Params) =>
+      this.hotelService.getHotelById(params["id"]).subscribe(
+        (response: any) => {
+          console.log(response);
+          this.loading = false;
+          this.hotel = response.data.hotel;
+        },
 
-    this.route.params.subscribe(
-      (params: Params) =>
-        (this.hotel = this.hotelService.getHotelById(params["id"]))
+        (err) => {
+          console.log(err);
+          this.loading = false;
+        }
+      )
     );
   }
 

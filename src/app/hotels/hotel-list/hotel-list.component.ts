@@ -43,7 +43,7 @@ export class HotelListComponent implements OnInit {
   constructor(private hs: HotelDataService) {}
 
   ngOnInit() {
-    this.hs.getHotels().subscribe(
+    this.hs.getHotels(null).subscribe(
       (hotels) => {
         this.hotels = hotels;
         this.loading = false;

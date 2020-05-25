@@ -12,13 +12,12 @@
 
   <div class="heading">
     <h2>The most popular hotels in Kampala</h2>
-    <a routerLink="/hotels?location=kampala">See all</a>
+    <a routerLink="/hotels/kampala">See all</a>
   </div>
   <section class="kampala-hotels">
     <app-hotel-thumb
-      *ngFor="let hotel of hotels; let i = index"
+      *ngFor="let hotel of hotels"
       [hotel]="hotel"
-      [index]="i"
     ></app-hotel-thumb>
   </section>
 

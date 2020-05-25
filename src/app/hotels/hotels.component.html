@@ -1,1 +1,13 @@
-<p>hotels works!</p>
+<h1>All the hotels around {{ location }}</h1>
+
+<div *ngIf="hotels?.length > 1" class="hotels">
+  <app-hotel-thumb
+    *ngFor="let hotel of hotels"
+    [hotel]="hotel"
+  ></app-hotel-thumb>
+</div>
+
+<div *ngIf="hotels?.length < 1" class="no-hotel">
+  <h3>Sorry</h3>
+  <p>Currently no registered hotels in {{ location }}</p>
+</div>

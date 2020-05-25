@@ -5,8 +5,6 @@ import {
   ElementRef,
   AfterViewInit,
   AfterContentInit,
-  ViewChildren,
-  QueryList,
 } from "@angular/core";
 import { HotelDataService } from "src/app/services/hotelData.service";
 import { Hotel } from "../hotel.model";
