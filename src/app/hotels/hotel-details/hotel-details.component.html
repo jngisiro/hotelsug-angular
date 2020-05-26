@@ -4,21 +4,24 @@
 
 <main *ngIf="!loading" class="container">
   <aside class="sidebar">
-    <h3>Make a reservation now</h3>
+    sidebar
+    <!-- <h3>Make a reservation now</h3>
     <button class="book">Book</button>
-    <button class="favourite">Add to watchlist</button>
+    <button class="favourite">Add to watchlist</button> -->
   </aside>
 
   <article class="hotel">
     <ul class="nav">
-      <li><a routerLink="#prices">Pricing</a></li>
-      <li><a routerLink="#facilities">Facilities</a></li>
-      <li><a routerLink="#rules">House Rules</a></li>
-      <li><a routerLink="#reviews">Guest Reviews</a></li>
+      <li><a (click)="goTo('pricing')">Pricing</a></li>
+      <li><a (click)="goTo('facilities')">Facilities</a></li>
+      <li><a (click)="goTo('rules')">House Rules</a></li>
+      <li><a (click)="goTo('reviews')">Guest Reviews</a></li>
     </ul>
 
     <h2 class="hotel__heading">{{ hotel?.name }} - {{ hotel?.location }}</h2>
-    <p class="hotel__address">{{ hotel?.address }}</p>
+    <p class="hotel__address">
+      {{ hotel?.address || hotel.address.description }}
+    </p>
     <div class="imgThumb">
       <img class="imgThumb__img" src="{{ hotel?.coverImage }}" />
     </div>
@@ -27,14 +30,23 @@
       <p>{{ hotel.summary }}</p>
     </div>
 
-    <div class="hotel__facilities">
+    <div id="facilities" class="hotel__facilities">
       <h2 class="sub_heading">Facilities</h2>
       <ul>
         <li *ngFor="let item of hotel.facilities" class="item">{{ item }}</li>
       </ul>
     </div>
 
-    <div class="hotel__rules">
+    <div id="prices" class="hotel__pricing">
+      <h2 class="sub_heading">Prices</h2>
+
+      <p>Studio Suite: $200</p>
+      <p>Deluxe Suite: $200</p>
+      <p>King Size Suite: $200</p>
+      <p>Studio Suite: $200</p>
+    </div>
+
+    <div id="rules" class="hotel__rules">
       <h2 class="sub_heading">Rules</h2>
       <ul>
         <li *ngFor="let item of hotel.rules">{{ item }}</li>

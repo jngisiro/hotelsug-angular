@@ -9,10 +9,13 @@ import { Router } from "@angular/router";
 })
 export class HotelThumbComponent implements OnInit {
   @Input() hotel: Hotel;
+  price;
 
   constructor(private router: Router) {}
 
-  ngOnInit() {}
+  ngOnInit() {
+    this.price = Math.floor(Math.random() * 200)
+  }
 
   onSelectHotel() {
     this.router.navigate(["hotel", this.hotel.id]);

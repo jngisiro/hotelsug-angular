@@ -8,15 +8,15 @@
   margin: 1rem 0;
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(10rem, 1fr));
-  grid-column-gap: 1rem;
+  grid-gap: 2rem 1rem;
 }
 
 .kampala-hotels {
   margin: 1rem 0;
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr));
-  grid-column-gap: 1rem;
-  align-content: stretch;
+  grid-gap: 2rem 1rem;
+  align-items: stretch;
 }
 
 .heading {

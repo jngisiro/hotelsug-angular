@@ -40,6 +40,10 @@ export class HotelDetailsComponent implements OnInit {
     );
   }
 
+  goTo(fragment) {
+    window.location.hash = fragment;
+  }
+
   getColor() {
     return this.hasAmenities ? "green" : "red";
   }
