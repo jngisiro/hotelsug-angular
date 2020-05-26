@@ -11,16 +11,21 @@ import { Hotel } from "./hotel.model";
 export class HotelsComponent implements OnInit {
   location: string;
   hotels: Hotel[];
+  loading = false;
   constructor(private hs: HotelDataService, private route: ActivatedRoute) {}
 
   ngOnInit() {
+    this.loading = true;
     this.route.params.subscribe((params) => {
       this.location = params["location"];
       this.hs.getHotels(params["location"]).subscribe(
         (response) => {
+          this.loading = false;
+          this.hotels = response;
           console.log(response);
         },
         (err) => {
+          this.loading = false;
           console.log(err);
         }
       );

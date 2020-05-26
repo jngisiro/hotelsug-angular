@@ -1,5 +1,6 @@
 export interface Hotel {
   id?: string;
+  location: string;
   name: string;
   slug?: string;
   images?: string[];
@@ -18,7 +19,7 @@ export interface Hotel {
   ratings?: number;
   rules?: string;
   views?: number;
-  location: {
+  address: {
     address: string;
     description: string;
     region: string;

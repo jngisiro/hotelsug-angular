@@ -1,5 +1,7 @@
 import { Component, OnInit, Input } from "@angular/core";
 import { HotelLocation } from "../location.model";
+import { HotelDataService } from "src/app/services/hotelData.service";
+import { ActivatedRoute, Router } from "@angular/router";
 
 @Component({
   selector: "app-location",
@@ -8,8 +10,14 @@ import { HotelLocation } from "../location.model";
 })
 export class LocationComponent implements OnInit {
   @Input() location: HotelLocation;
+  hotels;
+  loading = false;
 
-  constructor() {}
+  constructor(private router: Router) {}
 
   ngOnInit() {}
+
+  onSelect(location) {
+    this.router.navigate(["hotels", location]);
+  }
 }

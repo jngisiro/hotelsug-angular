@@ -9,10 +9,10 @@ import { domain, local } from "./url.service";
 export class HotelDataService {
   constructor(private http: HttpClient, private auth: AuthService) {}
 
-  getHotels(locations: string) {
+  getHotels(location: string) {
     let route = `${domain}/api/v1/hotel`;
-    if (locations) {
-      route = `${domain}/api/v1/hotel?location=kampala`;
+    if (location) {
+      route = `${domain}/api/v1/hotel?location=${location}`;
     }
     return this.http.get(route).pipe(
       map((hotels: any) => {
@@ -44,8 +44,12 @@ export class HotelDataService {
 
   // LOCATIONS DATA
 
-  getLocations() {
-    return this.http.get(domain + "/api/v1/locations").pipe(
+  getLocations(location: string) {
+    let url = `${domain}/api/v1/locations`;
+    if (location) {
+      url = `${domain}/api/v1/locations?name=${location}`;
+    }
+    return this.http.get(url).pipe(
       map((locations: any) => {
         return locations.data;
       })

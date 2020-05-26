@@ -91,7 +91,8 @@ export class CreateHotelComponent
       name: hotelName,
       description,
       summary,
-      location: {
+      location,
+      address: {
         address: location,
         description: address,
         region: "West Nile",
@@ -104,7 +105,6 @@ export class CreateHotelComponent
       images,
       availability: true,
     };
-
     this.hotelService
       .imageUpload()
       .pipe(

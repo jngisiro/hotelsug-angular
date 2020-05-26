@@ -1,1 +1,8 @@
-<p>location-details works!</p>
+<app-loading *ngIf="loading"></app-loading>
+
+<div class="destinations">
+  <app-location
+    *ngFor="let location of locations"
+    [location]="location"
+  ></app-location>
+</div>

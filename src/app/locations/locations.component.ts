@@ -8,13 +8,21 @@ import { HotelDataService } from "../services/hotelData.service";
 })
 export class LocationsComponent implements OnInit {
   locations;
+  loading = false;
 
   constructor(private hotelService: HotelDataService) {}
 
   ngOnInit() {
-    this.hotelService.getLocations().subscribe(
-      (locations) => console.log(locations),
-      (err) => console.log(err)
+    this.loading = true;
+    this.hotelService.getLocations(null).subscribe(
+      (locations) => {
+        this.loading = false;
+        this.locations = locations.locations;
+      },
+      (err) => {
+        this.loading = false;
+        console.log(err);
+      }
     );
   }
 }
