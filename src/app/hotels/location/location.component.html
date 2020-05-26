@@ -1,5 +1,8 @@
 <div class="imgThumb">
-  <img src="{{ location?.imgSrc }}" (click)="onSelect(location.name)" />
+  <img
+    src="{{ location?.imageUrl || location?.imgSrc }}"
+    (click)="onSelect(location.name)"
+  />
 </div>
 <p class="imgThumb__title">{{ location?.name }}</p>
 <p class="imgThumb__info">{{ location?.hotels?.length }} Hotels</p>

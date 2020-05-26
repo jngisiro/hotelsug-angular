@@ -1,5 +1,5 @@
 export interface HotelLocation {
   name: string;
-  imgSrc: string;
+  imgUrl: string;
   hotels: [];
 }
