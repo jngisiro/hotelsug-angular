@@ -24,19 +24,19 @@ a {
   justify-content: space-around;
   list-style: none;
   flex-grow: 4;
-  color: #ffd800;
 
   li {
     margin-top: 0.5rem;
 
     a {
-      color: #ffd800;
+      color: #ffd700;
     }
   }
 }
 
 .signin {
-  border: 1px solid #fff;
-  padding: 0.2rem 1.7rem;
+  border: 1px solid #ffd700;
+  padding: 0.3rem 1.7rem;
+  color: #fff;
   border-radius: 3px;
 }

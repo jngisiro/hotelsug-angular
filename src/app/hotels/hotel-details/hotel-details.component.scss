@@ -57,10 +57,86 @@
 
     .imgThumb {
       height: 400px;
+      position: relative;
       &__img {
         width: 100%;
         height: 100%;
         object-fit: cover;
+      }
+
+      .curtain {
+        position: absolute;
+        bottom: 20px;
+        right: 20px;
+        width: 40%;
+        background-color: rgba(255, 255, 255, 0.8);
+        padding: 20px;
+        border-radius: 5px;
+        box-shadow: 0 0 2px #444;
+
+        .notch {
+          position: absolute;
+          top: -10px;
+          left: 30px;
+          border-radius: 5px;
+          box-shadow: 0 0 2px #444;
+          padding: 5px;
+          background-color: #ffd800;
+          color: #051937;
+        }
+
+        h3 {
+          font-weight: bolder;
+          margin: 10px 0;
+        }
+
+        p {
+          color: #414040;
+          font-size: 15px;
+          margin-bottom: 10px;
+        }
+
+        .price {
+          font-weight: bolder;
+          font-size: 24px;
+          color: #051937;
+          text-align: right;
+
+          span {
+            color: #000;
+            font-size: 14px;
+          }
+        }
+
+        .right {
+          float: right;
+        }
+
+        .left {
+          float: left;
+        }
+
+        button {
+          padding: 5px 15px;
+          background-color: #051937;
+          color: #ffd800;
+          border: none;
+          cursor: pointer;
+          border-radius: 5px;
+          font-size: 14px;
+          transition: 0.3s ease-out;
+
+          &:hover {
+            background-color: rgba(5, 25, 55, 0.9);
+            transform: translateY(-2px);
+          }
+
+          &:focus,
+          &:visited {
+            background-color: #051937;
+            transform: translateY(1px);
+          }
+        }
       }
     }
 
@@ -118,6 +194,7 @@
     a {
       text-decoration: none;
       color: #051937;
+      cursor: pointer;
     }
   }
 }

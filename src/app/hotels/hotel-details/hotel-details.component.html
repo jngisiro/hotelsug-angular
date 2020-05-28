@@ -20,10 +20,26 @@
 
     <h2 class="hotel__heading">{{ hotel?.name }} - {{ hotel?.location }}</h2>
     <p class="hotel__address">
-      {{ hotel?.address || hotel.address.description }}
+      {{ hotel.address.description }}
     </p>
     <div class="imgThumb">
       <img class="imgThumb__img" src="{{ hotel?.coverImage }}" />
+      <div class="curtain">
+        <div class="notch">
+          Reservations
+        </div>
+        <h3>{{ hotel?.name }}</h3>
+        <p>
+          Book and make reservations to for the most affordable prices or add
+          the hotel to your watchlist to be notified of any new offers
+        </p>
+
+        <p class="price">
+          - ${{ hotel?.avgPrice || "130" }}<span> (Per Night)</span>
+        </p>
+        <button class="right">Make Reservation</button>
+        <button class="left">Add to Watchlist</button>
+      </div>
     </div>
 
     <div class="hotel__description">

@@ -1,14 +1,15 @@
-import { Component, OnInit } from "@angular/core";
+import { Component, OnInit, OnDestroy } from "@angular/core";
 import { Router, ActivatedRoute, Params } from "@angular/router";
 import { Hotel } from "../hotel.model";
 import { HotelDataService } from "src/app/services/hotelData.service";
+import { Title } from "@angular/platform-browser";
 
 @Component({
   selector: "app-hotel-details",
   templateUrl: "./hotel-details.component.html",
   styleUrls: ["./hotel-details.component.scss"],
 })
-export class HotelDetailsComponent implements OnInit {
+export class HotelDetailsComponent implements OnInit, OnDestroy {
   hotelAmenities: string[] = ["tv", "bath", "parking"];
   hasAmenities: boolean = false;
   hotel;
@@ -17,7 +18,8 @@ export class HotelDetailsComponent implements OnInit {
   constructor(
     private router: Router,
     private route: ActivatedRoute,
-    private hotelService: HotelDataService
+    private hotelService: HotelDataService,
+    private titleService: Title
   ) {
     this.hasAmenities = Math.random() > 0.5 ? true : false;
   }
@@ -30,6 +32,7 @@ export class HotelDetailsComponent implements OnInit {
           console.log(response);
           this.loading = false;
           this.hotel = response.data.hotel;
+          this.titleService.setTitle(this.hotel.name);
         },
 
         (err) => {
@@ -50,5 +53,9 @@ export class HotelDetailsComponent implements OnInit {
 
   onBooked() {
     this.router.navigate(["/"]);
+  }
+
+  ngOnDestroy() {
+    this.titleService.setTitle("Hotels.ug");
   }
 }

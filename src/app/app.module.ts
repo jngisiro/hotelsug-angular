@@ -31,6 +31,8 @@ import { HotelsComponent } from "./hotels/hotels.component";
 import { BookComponent } from "./book/book.component";
 import { CreateLocationComponent } from './locations/create-location/create-location.component';
 import { CreateHotelComponent } from './hotels/create-hotel/create-hotel.component';
+import { HeroComponent } from './hero/hero.component';
+import { FooterComponent } from './footer/footer.component';
 
 @NgModule({
   declarations: [
@@ -56,6 +58,8 @@ import { CreateHotelComponent } from './hotels/create-hotel/create-hotel.compone
     BookComponent,
     CreateLocationComponent,
     CreateHotelComponent,
+    HeroComponent,
+    FooterComponent,
   ],
   imports: [
     BrowserModule,
