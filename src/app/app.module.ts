@@ -33,6 +33,8 @@ import { CreateLocationComponent } from './locations/create-location/create-loca
 import { CreateHotelComponent } from './hotels/create-hotel/create-hotel.component';
 import { HeroComponent } from './hero/hero.component';
 import { FooterComponent } from './footer/footer.component';
+import { SearchComponent } from './search/search.component';
+import { SearchThumbComponent } from './search-thumb/search-thumb.component';
 
 @NgModule({
   declarations: [
@@ -60,6 +62,8 @@ import { FooterComponent } from './footer/footer.component';
     CreateHotelComponent,
     HeroComponent,
     FooterComponent,
+    SearchComponent,
+    SearchThumbComponent,
   ],
   imports: [
     BrowserModule,

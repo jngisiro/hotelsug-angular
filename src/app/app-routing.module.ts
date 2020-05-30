@@ -18,6 +18,7 @@ import { LocationDetailsComponent } from "./locations/location-details/location-
 import { BookComponent } from "./book/book.component";
 import { CreateLocationComponent } from "./locations/create-location/create-location.component";
 import { CreateHotelComponent } from "./hotels/create-hotel/create-hotel.component";
+import { SearchComponent } from "./search/search.component";
 
 const routes: Routes = [
   { path: "", component: HotelListComponent },
@@ -26,6 +27,7 @@ const routes: Routes = [
   { path: "hotels", component: HotelsComponent },
   { path: "hotels/:location", component: HotelsComponent },
   { path: "locations", component: LocationsComponent },
+  { path: "search", component: SearchComponent },
   { path: "locations/create", component: CreateLocationComponent },
   { path: "location/:id", component: LocationDetailsComponent },
   { path: "bookings", component: BookingsComponent, canActivate: [AuthGuard] },
