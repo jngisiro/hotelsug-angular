@@ -21,6 +21,12 @@ export class HotelDataService {
     );
   }
 
+  getHotelsParams(params) {
+    return this.http.get(`${domain}/api/v1/hotel`, {
+      params: params,
+    });
+  }
+
   getHotelById(id: string) {
     return this.http.get(`${domain}/api/v1/hotel/${id}`);
   }

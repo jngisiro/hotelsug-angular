@@ -1,0 +1,29 @@
+<div class="card" (click)="onSelect()">
+  <header class="card__title">
+    <h3 class="name">{{ hotel.name }}</h3>
+    <p class="location">{{ hotel.location }}</p>
+  </header>
+
+  <div class="card__body">
+    <div class="card__img">
+      <img src="{{ hotel.coverImage }}" />
+    </div>
+
+    <div class="card_info">
+      <p class="location">{{ hotel.location }}</p>
+
+      <ul class="facilities">
+        <li *ngFor="let item of hotel.facilities">{{ item }}</li>
+      </ul>
+    </div>
+
+    <div class="card_rating">
+      <h1 class="rating">{{ hotel.rating || 4.9 }}</h1>
+    </div>
+
+    <div class="card_price">
+      <h1 class="price">{{ hotel.price || "$300" }}</h1>
+      <p>Per night. Meals inclusive</p>
+    </div>
+  </div>
+</div>

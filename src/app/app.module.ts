@@ -29,12 +29,12 @@ import { LocationDetailsComponent } from "./locations/location-details/location-
 import { LocationsComponent } from "./locations/locations.component";
 import { HotelsComponent } from "./hotels/hotels.component";
 import { BookComponent } from "./book/book.component";
-import { CreateLocationComponent } from './locations/create-location/create-location.component';
-import { CreateHotelComponent } from './hotels/create-hotel/create-hotel.component';
-import { HeroComponent } from './hero/hero.component';
-import { FooterComponent } from './footer/footer.component';
-import { SearchComponent } from './search/search.component';
-import { SearchThumbComponent } from './search-thumb/search-thumb.component';
+import { CreateLocationComponent } from "./locations/create-location/create-location.component";
+import { CreateHotelComponent } from "./hotels/create-hotel/create-hotel.component";
+import { HeroComponent } from "./hero/hero.component";
+import { FooterComponent } from "./footer/footer.component";
+import { SearchComponent } from "./search/search.component";
+import { SearchThumbComponent } from "./search/search-thumb/search-thumb.component";
 
 @NgModule({
   declarations: [

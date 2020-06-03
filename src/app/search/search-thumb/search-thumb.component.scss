@@ -1,0 +1,26 @@
+.card {
+  display: flex;
+  flex-flow: column;
+  padding: 10px;
+  box-shadow: 0 0 2px grey;
+  margin-bottom: 40px;
+  cursor: pointer;
+
+  &__body {
+    display: flex;
+    flex-flow: row;
+    justify-content: space-between;
+    text-align: center;
+  }
+
+  &__img {
+    width: 200px;
+    height: 200px;
+
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+  }
+}
