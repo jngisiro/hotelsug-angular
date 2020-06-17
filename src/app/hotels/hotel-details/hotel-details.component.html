@@ -37,7 +37,7 @@
         <p class="price">
           - ${{ hotel?.avgPrice || "130" }}<span> (Per Night)</span>
         </p>
-        <button class="right">Make Reservation</button>
+        <button class="right" (click)="onReserve()">Make Reservation</button>
         <button class="left">Add to Watchlist</button>
       </div>
     </div>

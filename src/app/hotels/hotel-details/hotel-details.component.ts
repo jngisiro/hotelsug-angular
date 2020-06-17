@@ -58,4 +58,8 @@ export class HotelDetailsComponent implements OnInit, OnDestroy {
   ngOnDestroy() {
     this.titleService.setTitle("Hotels.ug");
   }
+
+  onReserve() {
+    this.router.navigate(["book"], { queryParams: { hotelId: this.hotel.id } });
+  }
 }

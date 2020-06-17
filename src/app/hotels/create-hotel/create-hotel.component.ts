@@ -26,6 +26,7 @@ export class CreateHotelComponent
   @ViewChild("tabs", { static: true }) _tabs: ElementRef;
   @ViewChild("nextBtn", { static: true }) nextBtn: ElementRef;
   @ViewChild("prevBtn", { static: true }) prevBtn: ElementRef;
+  @ViewChild("submitBtn", { static: true }) submitBtn: ElementRef;
   @ViewChild("form", { static: true }) form;
   @ViewChild("steps", { static: true }) steps: ElementRef;
   tabs;
@@ -68,6 +69,7 @@ export class CreateHotelComponent
       summary,
       location,
       address,
+      region,
       coordinates,
       facilities,
       languages,
@@ -75,6 +77,8 @@ export class CreateHotelComponent
       coverImage,
       images,
     } = form.value;
+
+    console.log(form);
 
     facilities = this.splitIntoArray(facilities);
     coordinates = this.splitIntoArray(coordinates);
@@ -95,7 +99,7 @@ export class CreateHotelComponent
       address: {
         address: location,
         description: address,
-        region: "West Nile",
+        region,
         coordinates,
       },
       coverImage,
@@ -129,16 +133,6 @@ export class CreateHotelComponent
         },
         (err) => console.log(err)
       );
-
-    // this.hotelService.imageUpload().subscribe((response: any) => {
-    //   console.log(response.result);
-    //   newHotel.coverImage = response.result.key;
-    // });
-
-    // this.hotelService.registerHotel(newHotel).subscribe(
-    //   (response) => console.log(response),
-    //   (err) => console.log(err)
-    // );
   }
 
   private showTab(n: number) {
@@ -153,23 +147,27 @@ export class CreateHotelComponent
 
     if (n == this.tabs.length - 1) {
       this.submit = true;
+      this.nextBtn.nativeElement.style.display = "none";
+      this.submitBtn.nativeElement.style.display = "inline";
+    } else {
+      this.nextBtn.nativeElement.style.display = "inline";
+      this.submitBtn.nativeElement.style.display = "none";
     }
     // ... and run a function that displays the correct step indicator:
     this.fixStepIndicator(n);
   }
 
   nextPrev(n) {
-    // Hide the current tab:
-    this.tabs[this.currentTab].style.display = "none";
-    // Increase or decrease the current tab by 1:
-    this.currentTab = this.currentTab + n;
-    // if you have reached the end of the form... :
-    if (this.currentTab >= this.tabs.length) {
-      this.onSubmit(this.form);
-      return false;
+    if (this.currentTab <= this.tabs.length - 1) {
+      // Hide the current tab:
+      this.tabs[this.currentTab].style.display = "none";
+
+      // Increase or decrease the current tab by 1:
+      this.currentTab = this.currentTab + n;
+
+      // Otherwise, display the correct tab:
+      this.showTab(this.currentTab);
     }
-    // Otherwise, display the correct tab:
-    this.showTab(this.currentTab);
   }
 
   fixStepIndicator(n) {

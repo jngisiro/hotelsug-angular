@@ -1,15 +1,20 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit } from "@angular/core";
+import { ActivatedRoute } from "@angular/router";
+import { MatSnackBar } from "@angular/material";
 
 @Component({
-  selector: 'app-book',
-  templateUrl: './book.component.html',
-  styleUrls: ['./book.component.scss']
+  selector: "app-book",
+  templateUrl: "./book.component.html",
+  styleUrls: ["./book.component.scss"],
 })
 export class BookComponent implements OnInit {
+  minDate = new Date();
 
-  constructor() { }
+  constructor(private route: ActivatedRoute, private snackBar: MatSnackBar) {}
 
-  ngOnInit() {
+  ngOnInit() {}
+
+  openSnackBar(msg) {
+    this.snackBar.open(msg);
   }
-
 }

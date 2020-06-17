@@ -35,6 +35,9 @@ import { HeroComponent } from "./hero/hero.component";
 import { FooterComponent } from "./footer/footer.component";
 import { SearchComponent } from "./search/search.component";
 import { SearchThumbComponent } from "./search/search-thumb/search-thumb.component";
+import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
+import { MaterialModule } from "./material/material.module";
+import { MatSnackBarModule, MatSnackBar } from "@angular/material";
 
 @NgModule({
   declarations: [
@@ -71,12 +74,16 @@ import { SearchThumbComponent } from "./search/search-thumb/search-thumb.compone
     FormsModule,
     ReactiveFormsModule,
     HttpClientModule,
+    BrowserAnimationsModule,
+    MaterialModule,
+    MatSnackBarModule,
   ],
   providers: [
     HotelDataService,
     AuthService,
     AuthGuard,
     CanDeactivateGuard,
+    MatSnackBar,
     { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true },
   ],
   bootstrap: [AppComponent],

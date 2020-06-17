@@ -8,7 +8,7 @@
           Hotel Name
           <input
             type="text"
-            placeholder="(required)"
+            placeholder="required"
             ngModel
             name="hotelName"
             #hotelName="ngModel"
@@ -41,7 +41,7 @@
             name="summary"
             #summary="ngModel"
             type="text"
-            placeholder="(required)"
+            placeholder="required"
             required
           />
           <small *ngIf="summary.invalid && summary.touched"
@@ -58,7 +58,7 @@
             <option>Kampala</option>
             <option>Jinja</option>
             <option>Entebbe</option>
-            <option>Fort Porta</option>
+            <option>Fort Portal</option>
           </select>
         </label>
 
@@ -75,7 +75,7 @@
 
         <label for="location">
           Select Region
-          <select ngModel name="location" #location="ngModel" required>
+          <select ngModel name="region" #region="ngModel" required>
             <option>Central Uganda</option>
             <option>Eastern Uganda</option>
             <option>Western Uganda</option>
@@ -116,7 +116,7 @@
             type="text"
             ngModel
             name="languages"
-            placeholder="language, language, . . . "
+            placeholder="Language, language, . . . "
             #languages="ngModel"
           />
         </label>
@@ -128,7 +128,10 @@
             name="rules"
             #rules="ngModel"
             rows="10"
-            placeholder="rule\nrule\nrule"
+            placeholder="Rule One
+Rule Two
+Rule Three
+. . ."
           ></textarea>
         </label>
       </div>
@@ -155,6 +158,52 @@
           />
         </label>
       </div>
+
+      <div class="tab">
+        Hotel Room Prices
+
+        <label for="ordinary">
+          Ordinary Rooms
+          <input
+            type="number"
+            ngModel
+            name="ordinary"
+            placeholder="Enter Price in Dollars"
+            #ordinary="ngModel"
+          />
+        </label>
+
+        <label for="double">
+          Double Rooms
+          <input
+            type="number"
+            ngModel
+            name="double"
+            placeholder="Enter Price in Dollars"
+            #double="ngModel"
+          />
+        </label>
+
+        <label for="deluxe">
+          Deluxe Rooms
+          <input
+            type="number"
+            ngModel
+            name="deluxe"
+            placeholder="Enter Price in Dollars"
+            #deluxe="ngModel"
+          />
+        </label>
+
+        <label for="payments" class="payments">
+          <span
+            ><input type="checkbox" value="Mobile Money" />Mobile Money</span
+          >
+          <span><input type="checkbox" value="VISA" />VISA</span>
+          <span><input type="checkbox" value="Master Card" />Master Card</span>
+          <span><input type="checkbox" value="Paypal" />PayPal</span>
+        </label>
+      </div>
     </div>
 
     <div style="overflow: auto;">
@@ -175,13 +224,25 @@
           id="nextBtn"
           (click)="nextPrev(1)"
         >
-          {{ submit ? "Submit" : "Next" }}
+          Next
+        </button>
+
+        <button
+          style="float: right;"
+          #submitBtn
+          type="button"
+          id="submitBtn"
+          [disabled]="form.invalid"
+          (click)="onSubmit(form)"
+        >
+          Submit
         </button>
       </div>
     </div>
 
     <!-- Circles which indicates the steps of the form: -->
     <div #steps style="text-align: center; margin-top: 40px;">
+      <span class="step"></span>
       <span class="step"></span>
       <span class="step"></span>
       <span class="step"></span>
