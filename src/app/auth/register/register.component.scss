@@ -1,0 +1,33 @@
+.realio {
+  // background-color: red;
+  background-image: linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 1)),
+    url(../../../assets/img/kingfisher.jpg);
+  background-size: cover;
+}
+
+.register-form {
+  margin: -2rem -4rem;
+  h1 {
+    font-size: 40px;
+    text-align: center;
+    padding: 20px 0;
+    font-weight: 200;
+  }
+
+  mat-card {
+    width: 85%;
+    box-shadow: none;
+    border: 1px solid #ddd;
+
+    mat-form-field {
+      width: 90%;
+    }
+
+    button {
+      margin-top: 30px;
+      margin-bottom: 20px;
+      font-size: 18px;
+      height: 45px;
+    }
+  }
+}

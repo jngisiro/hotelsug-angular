@@ -25,13 +25,14 @@ export class RegisterComponent implements OnInit, CanComponentDeactivate {
       firstname: new FormControl(null, Validators.required),
       lastname: new FormControl(null, Validators.required),
       email: new FormControl(null, [Validators.required, this.validDateEmail]),
+      phone: new FormControl(null, [Validators.required]),
       password: new FormControl(null, [
         Validators.required,
-        Validators.minLength(8),
+        Validators.minLength(6),
       ]),
       passwordConfirm: new FormControl(null, [
         Validators.required,
-        Validators.minLength(8),
+        Validators.minLength(6),
       ]),
     });
   }

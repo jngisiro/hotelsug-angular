@@ -1,83 +1,86 @@
 <section class="register-form">
-  <h1>Create Your Account Here</h1>
-  <form
-    class="form"
-    [formGroup]="registerForm"
-    (ngSubmit)="onRegistered()"
-    *ngIf="!hasRegistered"
-  >
-    <label for="firstname">
-      First Name
-      <input type="text" formControlName="firstname" />
-      <small
-        *ngIf="
-          registerForm.get('firstname').invalid &&
-          registerForm.get('firstname').touched
-        "
-        >Please provide a first name</small
-      >
-    </label>
+  <mat-grid-list cols="2">
+    <mat-grid-tile class="realio"> </mat-grid-tile>
 
-    <label for="lastname">
-      Last Name
-      <input type="text" formControlName="lastname" />
-      <small
-        *ngIf="
-          registerForm.get('lastname').invalid &&
-          registerForm.get('lastname').touched
-        "
-        >Please provide a last name</small
-      >
-    </label>
+    <mat-grid-tile>
+      <mat-card>
+        <form
+          class="form"
+          [formGroup]="registerForm"
+          (ngSubmit)="onRegistered()"
+          *ngIf="!hasRegistered"
+        >
+          <h1>Register for an Account</h1>
+          <mat-grid-list cols="2" rowHeight="100px">
+            <mat-grid-tile>
+              <mat-form-field appearance="fill">
+                <mat-label>First Name</mat-label>
+                <input matInput type="text" formControlName="firstname" />
+              </mat-form-field>
+            </mat-grid-tile>
 
-    <label for="email">
-      Email Address
-      <input type="email" formControlName="email" />
-      <small
-        *ngIf="
-          registerForm.get('email').invalid && registerForm.get('email').touched
-        "
-        >Please provide a first email address</small
-      >
-    </label>
+            <mat-grid-tile>
+              <mat-form-field appearance="fill">
+                <mat-label>Last Name</mat-label>
+                <input matInput type="text" formControlName="lastname" />
+              </mat-form-field>
+            </mat-grid-tile>
 
-    <label for="password">
-      Password
-      <input type="password" formControlName="password" />
-      <small
-        *ngIf="
-          registerForm.get('password').invalid &&
-          registerForm.get('password').touched
-        "
-        >Please provide a password</small
-      >
-    </label>
+            <mat-grid-tile>
+              <mat-form-field appearance="fill">
+                <mat-label>Email</mat-label>
+                <input matInput type="email" formControlName="email" />
+              </mat-form-field>
+            </mat-grid-tile>
 
-    <label for="passwordConfirm">
-      Confirm Password
-      <input type="password" formControlName="passwordConfirm" />
-      <small
-        *ngIf="
-          registerForm.get('passwordConfirm').invalid &&
-          registerForm.get('passwordConfirm').touched
-        "
-        >Please confirm your password</small
-      >
-    </label>
+            <mat-grid-tile>
+              <mat-form-field appearance="fill">
+                <mat-label>Phone</mat-label>
+                <input matInput type="tel" formControlName="phone" />
+              </mat-form-field>
+            </mat-grid-tile>
 
-    <button *ngIf="!loading" [disabled]="registerForm.invalid">
-      Create Account
-    </button>
-    <app-loading *ngIf="loading"></app-loading>
-  </form>
+            <mat-grid-tile>
+              <mat-form-field appearance="fill">
+                <mat-label>Password</mat-label>
+                <input matInput type="password" formControlName="password" />
+              </mat-form-field>
+            </mat-grid-tile>
 
-  <div class="notify" *ngIf="hasRegistered">
-    <h1 class="notify__header">
-      Success
-    </h1>
-    <p class="notify__message">
-      Congratulations. Your account has been created at Hotels.ug Please check
-      your email at: <b>{{ confirmEmail }}</b> to activate your account
-    </p>
-  </div>
+            <mat-grid-tile>
+              <mat-form-field appearance="fill">
+                <mat-label>Confirm Password</mat-label>
+                <input
+                  matInput
+                  type="password"
+                  formControlName="passwordConfirm"
+                />
+              </mat-form-field>
+            </mat-grid-tile>
+          </mat-grid-list>
+
+          <button
+            mat-raised-button
+            *ngIf="!loading"
+            [disabled]="registerForm.invalid"
+            color="accent"
+          >
+            Create Account
+          </button>
+          <app-loading *ngIf="loading"></app-loading>
+        </form>
+
+        <div class="notify" *ngIf="hasRegistered">
+          <h1 class="notify__header">
+            Success
+          </h1>
+          <p class="notify__message">
+            Congratulations. Your account has been created at Hotels.ug Please
+            check your email at: <b>{{ confirmEmail }}</b> to activate your
+            account
+          </p>
+        </div>
+      </mat-card>
+    </mat-grid-tile>
+  </mat-grid-list>
 </section>

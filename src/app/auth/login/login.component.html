@@ -1,38 +1,54 @@
 <section class="login-form">
-  <h1>Sign In</h1>
-  <form class="form" (ngSubmit)="onSubmit(form)" #form="ngForm">
-    <small class="error">{{ error }}</small>
-    <label for="username">
-      Email
-      <input
-        type="email"
-        ngModel
-        name="email"
-        #email="ngModel"
-        required
-        email
-      />
-      <small *ngIf="email.invalid && email.touched">Email is required</small>
-    </label>
+  <mat-grid-list cols="2">
+    <mat-grid-tile class="realio">
+      f
+      <!-- <div class="hero"></div> -->
+    </mat-grid-tile>
 
-    <label for="password">
-      Password
-      <input
-        type="password"
-        ngModel
-        name="password"
-        #password="ngModel"
-        required
-      />
-      <small *ngIf="password.invalid && password.touched"
-        >Password is required</small
-      >
-    </label>
+    <mat-grid-tile class="el">
+      <mat-card>
+        <form class="form" (ngSubmit)="onSubmit(form)" #form="ngForm">
+          <h1>Sign In</h1>
+          <mat-form-field>
+            <mat-label>Email</mat-label>
+            <input
+              matInput
+              type="email"
+              ngModel
+              name="email"
+              #email="ngModel"
+              required
+              email
+            />
+          </mat-form-field>
 
-    <button *ngIf="!loading" [disabled]="form.invalid">Login</button>
+          <mat-form-field>
+            <mat-label>Password</mat-label>
+            <input
+              matInput
+              type="password"
+              type="password"
+              ngModel
+              name="password"
+              #password="ngModel"
+              required
+            />
+          </mat-form-field>
 
-    <app-loading *ngIf="loading"></app-loading>
-
-    <p>Don't have an account? <a routerLink="/register">Register Here</a></p>
-  </form>
+          <button
+            color="primary"
+            mat-raised-button
+            *ngIf="!loading"
+            [disabled]="form.invalid"
+          >
+            Login
+          </button>
+          <p>
+            Don't have an account? <a routerLink="/register">Register Here</a>
+          </p>
+          <app-loading *ngIf="loading"></app-loading>
+        </form>
+      </mat-card>
+    </mat-grid-tile>
+  </mat-grid-list>
 </section>

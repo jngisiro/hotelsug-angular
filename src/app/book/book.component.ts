@@ -1,6 +1,7 @@
 import { Component, OnInit } from "@angular/core";
 import { ActivatedRoute } from "@angular/router";
 import { MatSnackBar } from "@angular/material";
+import { NgForm } from "@angular/forms";
 
 @Component({
   selector: "app-book",
@@ -16,5 +17,9 @@ export class BookComponent implements OnInit {
 
   openSnackBar(msg) {
     this.snackBar.open(msg);
+  }
+
+  onSubmit(form: NgForm) {
+    console.log(form.value);
   }
 }
